@@ -64,7 +64,10 @@ public class Entrance {
 //    In the end all organizers should be in front of all other students in the queue.
 //    (The order within organizers and non-organizers should stay the same)
     public void sortQueue() {
-        queue.sort(Comparator.comparing(Student::isOrganizer).reversed().thenComparingInt(student -> queue.indexOf(student)));
+        Comparator<Student> compareByOrganizer = Comparator.comparing(Student::isOrganizer).reversed();
+        Comparator<Student> compareByIndex = Comparator.comparingInt(student -> queue.indexOf(student));
+        queue.sort(compareByOrganizer);
+        queue.sort(compareByIndex);
 //        for (int i = 0; i < queue.size() - 1; i++) {
 //            Student student_current = queue.get(i);
 //            Student student_next = queue.get(i + 1);
@@ -93,6 +96,9 @@ public class Entrance {
         entrance.enqueue(student3);
         System.out.println(entrance.toString());
         //TODO 7: Invoke the sortQueue method and print the Queue to console again
+//        for (Student student : entrance.getQueue()) {
+//            System.out.println(student.getLastName() + student.isOrganizer());
+//        }
         entrance.sortQueue();
 //        for (Student student : entrance.getQueue()) {
 //            System.out.println(student.getLastName() + student.isOrganizer());
