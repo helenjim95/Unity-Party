@@ -5,13 +5,13 @@ public class Student {
     //TODO 1: Define variables with suitable datatypes, create a constructor and getter/setter methods for all variables
     private int age;
     private String lastName;
-    private Ticket hasTicket;
+    private Ticket ticket;
     private boolean isOrganizer;
 
-    public Student(int age, String lastName, Ticket hasTicket, boolean isOrganizer) {
+    public Student(int age, String lastName, Ticket ticket, boolean isOrganizer) {
         this.age = age;
         this.lastName = lastName;
-        this.hasTicket = hasTicket;
+        this.ticket = ticket;
         this.isOrganizer = isOrganizer;
     }
 
@@ -32,11 +32,11 @@ public class Student {
     }
 
     public Ticket hasTicket() {
-        return hasTicket;
+        return ticket;
     }
 
-    public void setHasTicket(Ticket hasTicket) {
-        this.hasTicket = hasTicket;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 
     public boolean isOrganizer() {
