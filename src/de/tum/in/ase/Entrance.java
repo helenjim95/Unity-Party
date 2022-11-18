@@ -21,7 +21,6 @@ public class Entrance {
     //Done: Implement the enqueue method
     public void enqueue(Student student) {
         queue.add(student);
-
     }
 
     //Done: Implement the dequeue method
@@ -43,7 +42,6 @@ public class Entrance {
     //Done: Implement the toString method
 //    Create a toString() method that prints all Students in the Queue like so: "{age} {lastName} has {valid | invalid} ticket \n"
 //  Hint: Use the toString() method in Ticket.
-    @Override
     public String toString() {
         StringBuilder output = new StringBuilder();
         for (Student student : queue) {
@@ -85,9 +83,9 @@ public class Entrance {
         entrance.enqueue(student1);
         entrance.enqueue(student2);
         entrance.enqueue(student3);
+        System.out.println(entrance.toString());
         //TODO 7: Invoke the sortQueue method and print the Queue to console again
         entrance.sortQueue();
-
         //TODO 8: Dequeue all students
         entrance.dequeue();
         entrance.dequeue();
