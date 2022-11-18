@@ -21,6 +21,7 @@ public class Entrance {
     //Done: Implement the enqueue method
     public void enqueue(Student student) {
         queue.add(student);
+
     }
 
     //Done: Implement the dequeue method
@@ -29,11 +30,13 @@ public class Entrance {
 //        The method should print if the student was admitted or not:
         //If the student has a ticket: "Entry was allowed for: {lastName}"
         //If the student doesn't have a ticket: "Entry was not allowed for: {lastName}"
-        Student student = queue.remove(0);
-        if (student.hasTicket().isValid()) {
-            System.out.printf("Entry was allowed for: %s%n", student.getLastName());
-        } else {
-            System.out.printf("\"Entry was not allowed for: %s%n", student.getLastName());
+        if (!queue.isEmpty()) {
+            Student student = queue.remove(0);
+            if (student.hasTicket().isValid()) {
+                System.out.printf("Entry was allowed for: %s%n", student.getLastName());
+            } else {
+                System.out.printf("\"Entry was not allowed for: %s%n", student.getLastName());
+            }
         }
     }
 
@@ -82,10 +85,8 @@ public class Entrance {
         entrance.enqueue(student1);
         entrance.enqueue(student2);
         entrance.enqueue(student3);
-        entrance.toString();
         //TODO 7: Invoke the sortQueue method and print the Queue to console again
         entrance.sortQueue();
-        entrance.toString();
 
         //TODO 8: Dequeue all students
         entrance.dequeue();
