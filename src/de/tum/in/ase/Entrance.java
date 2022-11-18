@@ -10,6 +10,14 @@ public class Entrance {
         queue = new LinkedList<>();
     }
 
+    public List<Student> getQueue() {
+        return queue;
+    }
+
+    public void setQueue(List<Student> queue) {
+        this.queue = queue;
+    }
+
     public boolean isEmpty() {
         return queue.isEmpty();
     }
@@ -56,7 +64,7 @@ public class Entrance {
 //    In the end all organizers should be in front of all other students in the queue.
 //    (The order within organizers and non-organizers should stay the same)
     public void sortQueue() {
-        queue.sort(Comparator.comparing(Student::isOrganizer));
+        queue.sort(Comparator.comparing(Student::isOrganizer).reversed().thenComparingInt(student -> queue.indexOf(student)));
 //        for (int i = 0; i < queue.size() - 1; i++) {
 //            Student student_current = queue.get(i);
 //            Student student_next = queue.get(i + 1);
@@ -86,6 +94,9 @@ public class Entrance {
         System.out.println(entrance.toString());
         //TODO 7: Invoke the sortQueue method and print the Queue to console again
         entrance.sortQueue();
+//        for (Student student : entrance.getQueue()) {
+//            System.out.println(student.getLastName() + student.isOrganizer());
+//        }
         //TODO 8: Dequeue all students
         entrance.dequeue();
         entrance.dequeue();
