@@ -35,7 +35,7 @@ public class Entrance {
             if (student.hasTicket().isValid()) {
                 System.out.printf("Entry was allowed for: %s%n", student.getLastName());
             } else {
-                System.out.printf("\"Entry was not allowed for: %s%n", student.getLastName());
+                System.out.printf("Entry was not allowed for: %s%n", student.getLastName());
             }
         }
     }
