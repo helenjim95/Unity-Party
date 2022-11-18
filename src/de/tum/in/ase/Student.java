@@ -6,13 +6,13 @@ public class Student {
     private int age;
     private String lastName;
     private Ticket ticket;
-    private boolean isOrganizer;
+    private boolean organizer;
 
-    public Student(int age, String lastName, Ticket ticket, boolean isOrganizer) {
+    public Student(int age, String lastName, Ticket ticket, boolean organizer) {
         this.age = age;
         this.lastName = lastName;
         this.ticket = ticket;
-        this.isOrganizer = isOrganizer;
+        this.organizer = organizer;
     }
 
     public String getLastName() {
@@ -40,10 +40,10 @@ public class Student {
     }
 
     public boolean isOrganizer() {
-        return isOrganizer;
+        return organizer;
     }
 
     public void setOrganizer(boolean organizer) {
-        isOrganizer = organizer;
+        this.organizer = organizer;
     }
 }
