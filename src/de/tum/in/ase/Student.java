@@ -31,7 +31,7 @@ public class Student {
         this.age = age;
     }
 
-    public Ticket hasTicket() {
+    public Ticket getTicket() {
         return ticket;
     }
 

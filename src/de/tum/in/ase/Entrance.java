@@ -39,7 +39,7 @@ public class Entrance {
         //If the student doesn't have a ticket: "Entry was not allowed for: {lastName}"
         if (!queue.isEmpty()) {
             Student student = queue.remove(0);
-            if (student.hasTicket().isValid()) {
+            if (student.getTicket().isValid()) {
                 System.out.printf("Entry was allowed for: %s%n", student.getLastName());
             } else {
                 System.out.printf("Entry was not allowed for: %s%n", student.getLastName());
@@ -53,7 +53,7 @@ public class Entrance {
     public String toString() {
         StringBuilder output = new StringBuilder();
         for (Student student : queue) {
-            String isValid = student.hasTicket().isValid()? "valid" : "invalid";
+            String isValid = student.getTicket().isValid()? "valid" : "invalid";
             output.append(String.format("%d %s has %s ticket\n", student.getAge(), student.getLastName(), isValid));
         }
         return output.toString();
