@@ -37,7 +37,7 @@ public class Entrance {
 //        The method should print if the student was admitted or not:
         //If the student has a ticket: "Entry was allowed for: {lastName}"
         //If the student doesn't have a ticket: "Entry was not allowed for: {lastName}"
-        if (!queue.isEmpty()) {
+        if (queue.size() > 0) {
             Student student = queue.remove(0);
             if (student.getTicket().isValid()) {
                 System.out.printf("Entry was allowed for: %s%n", student.getLastName());
