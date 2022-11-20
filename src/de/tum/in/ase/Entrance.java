@@ -32,19 +32,19 @@ public class Entrance {
     }
 
     //Done: Implement the dequeue method
-    public void dequeue() {
+    public Student dequeue() {
 //        Create a dequeue method that simulates the admission (or denial) of a Student's entrance to the Unity Party.
 //        The method should print if the student was admitted or not:
         //If the student has a ticket: "Entry was allowed for: {lastName}"
         //If the student doesn't have a ticket: "Entry was not allowed for: {lastName}"
-        if (queue.size() > 0) {
-            Student student = queue.remove(0);
-            if (student.getTicket().isValid()) {
-                System.out.printf("Entry was allowed for: %s%n", student.getLastName());
-            } else {
-                System.out.printf("Entry was not allowed for: %s%n", student.getLastName());
-            }
+        Student student = queue.remove(0);
+        if (student.getTicket().isValid()) {
+            System.out.printf("Entry was allowed for: %s%n", student.getLastName());
+        } else {
+            System.out.printf("Entry was not allowed for: %s%n", student.getLastName());
         }
+        return student;
+
     }
 
     //Done: Implement the toString method
