@@ -64,9 +64,10 @@ public class Entrance {
 //    In the end all organizers should be in front of all other students in the queue.
 //    (The order within organizers and non-organizers should stay the same)
     public void sortQueue() {
+        List<Student> sortedQueue = new LinkedList(queue);
         Comparator<Student> compareByOrganizer = Comparator.comparing(Student::isOrganizer).reversed();
         Comparator<Student> compareByIndex = Comparator.comparingInt(student -> queue.indexOf(student));
-        queue.sort(Comparator.comparing(Student::isOrganizer).reversed().thenComparingInt(student -> queue.indexOf(student)));
+        sortedQueue.sort(Comparator.comparing(Student::isOrganizer).reversed().thenComparingInt(student -> queue.indexOf(student)));
 //        for (int i = 0; i < queue.size() - 1; i++) {
 //            Student student_current = queue.get(i);
 //            Student student_next = queue.get(i + 1);
