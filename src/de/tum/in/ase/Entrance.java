@@ -66,8 +66,7 @@ public class Entrance {
     public void sortQueue() {
         Comparator<Student> compareByOrganizer = Comparator.comparing(Student::isOrganizer).reversed();
         Comparator<Student> compareByIndex = Comparator.comparingInt(student -> queue.indexOf(student));
-        queue.sort(compareByOrganizer);
-        queue.sort(compareByIndex);
+        queue.sort(Comparator.comparing(Student::isOrganizer).reversed().thenComparingInt(student -> queue.indexOf(student)));
 //        for (int i = 0; i < queue.size() - 1; i++) {
 //            Student student_current = queue.get(i);
 //            Student student_next = queue.get(i + 1);
@@ -78,11 +77,6 @@ public class Entrance {
 //        Collections.sort(queue, (Comparator.<Student>comparingInt(student -> student.isOrganizer())));
 //        queue.stream().map(s -> s.isOrganizer()).forEach(Comparator.comparingBoolean);
     }
-
-//    Comparator<Student> sortIsOrganizer = Comparator.comparingInt(student -> student.isOrganizer()? 0: 1);
-//    public int compareWithIsOrganizer(Student s1, Student s2) {
-//        return Boolean.compare(s1.isOrganizer(), s2.isOrganizer());
-//    }
 
     public static void main(String[] args) {
          Student student1 = new Student(19, "Wagner", new Ticket(true), true);
