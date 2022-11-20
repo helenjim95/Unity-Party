@@ -37,6 +37,8 @@ public class Entrance {
 //        The method should print if the student was admitted or not:
         //If the student has a ticket: "Entry was allowed for: {lastName}"
         //If the student doesn't have a ticket: "Entry was not allowed for: {lastName}"
+        Comparator<Student> compareByIndex = Comparator.comparingInt(student -> queue.indexOf(student));
+        queue.sort(Comparator.comparingInt(student -> queue.indexOf(student)));
         Student student = queue.remove(0);
         if (student.getTicket().isValid()) {
             System.out.printf("Entry was allowed for: %s%n", student.getLastName());
@@ -64,10 +66,10 @@ public class Entrance {
 //    In the end all organizers should be in front of all other students in the queue.
 //    (The order within organizers and non-organizers should stay the same)
     public void sortQueue() {
-        List<Student> sortedQueue = new LinkedList(queue);
+//        List<Student> sortedQueue = new LinkedList(queue);
         Comparator<Student> compareByOrganizer = Comparator.comparing(Student::isOrganizer).reversed();
         Comparator<Student> compareByIndex = Comparator.comparingInt(student -> queue.indexOf(student));
-        sortedQueue.sort(Comparator.comparing(Student::isOrganizer).reversed().thenComparingInt(student -> queue.indexOf(student)));
+        queue.sort(Comparator.comparing(Student::isOrganizer).reversed().thenComparingInt(student -> queue.indexOf(student)));
 //        for (int i = 0; i < queue.size() - 1; i++) {
 //            Student student_current = queue.get(i);
 //            Student student_next = queue.get(i + 1);
