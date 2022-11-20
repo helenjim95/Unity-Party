@@ -37,8 +37,7 @@ public class Entrance {
 //        The method should print if the student was admitted or not:
         //If the student has a ticket: "Entry was allowed for: {lastName}"
         //If the student doesn't have a ticket: "Entry was not allowed for: {lastName}"
-        Comparator<Student> compareByIndex = Comparator.comparingInt(student -> student.getAge());
-        queue.sort(Comparator.comparingInt(student -> queue.indexOf(student)));
+        queue.sort(Comparator.comparingInt(student -> student.getAge()));
         Student student = queue.remove(0);
         if (student.getTicket().isValid()) {
             System.out.printf("Entry was allowed for: %s%n", student.getLastName());
